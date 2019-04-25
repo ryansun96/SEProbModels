@@ -1,37 +1,21 @@
-## Welcome to GitHub Pages
+> This project was originally prepared for a course at Washington University in St. Louis. The project was not sponsored, reviewed, or endorsed by Stack Exchange or its affiliates in any way.
 
-You can use the [editor on GitHub](https://github.com/ryansun96/SEProbModels/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+## Background
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Stack Exchange is a famous online Q&A community featuring high quality content. It started in 2008 as Stack Overflow, and has gained tremendous popularity in ten years. Recently, however, people begin to criticize the site (network) for being less and less friendly. In particular, new questions are no longer answered in a timely manner; instead, they are likely to cause "downvote" or "flag as duplicate / off-topic" with no constructive input from community on how to improve the quality.
 
-### Markdown
+## Objective
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+The project tries to evaluate the aforementioned claim. Particularly, it tries to answer the following questions, and analyze the trend by time:
 
-```markdown
-Syntax highlighted code block
+- How many answers does a question get?
+- How many answers does a user contribute?
+- How many answers does an OP have to wait, before the accepted answer was posted?
 
-# Header 1
-## Header 2
-### Header 3
+## Data source and processing
 
-- Bulleted
-- List
+Stack Exchange publishes its data dump regularly on [archive.org](https://archive.org/details/stackexchange). The archive contains all questions and answers (collectively - posts) on the network since its creation till the time of the data dump. For the purpose of this project, we only care about metadata of the posts, i.e. creation date, user, etc.
 
-1. Numbered
-2. List
+[Special treatment](https://www.reddit.com/r/learnprogramming/comments/ax3etg/fastest_way_to_remove_an_attribute_in_very_large/) is required to extract attribute from Stack Overflow's **huge** (> 20GB) XML. Basically, it needs to be read in chunk by chunk, and parsed chunk by chunk. `xml_parser.py` in the repo does this job.
 
-**Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ryansun96/SEProbModels/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
