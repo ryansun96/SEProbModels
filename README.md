@@ -67,6 +67,32 @@ group by q.site, date_trunc('month', q.creationdate), a.rnk;
 
 A simplistic approach would be to calculate the average by time, and make a plot. However, the author recognizes a few shortcoming of this method:
 
-- 
+- Average number of answers within a month is, by all means, a random variable. A mean-over-time approach would capture every fluctuation due to random variation and would be hard to tell the big picture.
+- An arithmetic mean has nothing to say about the Data Generating Process (**DGP**), which tells the story of what is happening in the process and is key to improvement recommendations for the business.
+
+Note that both questions of interest have a "counting" nature. We make following assumptions about the DGP:
+
+1. At individual level, number of actions by each entity is of Poisson distribution, with the parameter being his "propensity" (the likelihood to do something).
+2. Individuals can be different. Propensities of the whole sample is of Gamma distribution. Gamma distribution covers all positive real numbers, can demonstrate flexible shapes, and is usually mathematically convenient, making it a good choice to model heterogeneity.
+
+These give us the Negative Binomial Distribution (**NBD**), which will be fitted to data, month-by-month, using Maximum Likelihood Estimate (**MLE**). Python package `statsmodels` does not provide MLE for NBD out-of-the-box, so the author implemented his own:
+
+<script src="https://gist.github.com/ryansun96/e146188660e35e3a5f8c3b2a2e831640.js"></script>
+
+Python scripts that call the model can be found [here](https://github.com/ryansun96/SEProbModels/blob/master/num_ans_for_q.py) and [here](https://github.com/ryansun96/SEProbModels/blob/master/num_ans_for_usr.py). A few optimizations include using Pandas `apply` instead of `for` loop, as well as utilizing multi-processing.
+
+## Result
+
+### How many answers does a question get in a month, on average?
+
+![Expected # of Answers for a Question](FP_Ans_Q_Network.png "Expected # of Answers for a Question")
+
+### How many answers does a user contribute in a month, on average?
+
+![Expected # of Answers by a Contributor](FP_Ans_U_Network.png "Expected # of Answers by a Contributor")
+
+## Conclusion
+
+Unfortunately, 
 
 > This project was originally prepared for a course at Washington University in St. Louis. The project was not sponsored, reviewed, or endorsed by Stack Exchange or its affiliates in any way.
