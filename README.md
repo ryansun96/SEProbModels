@@ -1,6 +1,8 @@
 > ## Abstract
 > Stack Exchange (or Stack Overflow in particular) was recently under scrutiny for becoming unfriendly to new comers and less effective in providing knowledge to the community. The article examined its Q&A data, and, using Negative Binomial Model, proposed that its contributors were not as active as when it started. This could be attributed to dilution effect of new contributors joining, as well as existing answerers' less responsiveness.
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2654934.svg)](https://doi.org/10.5281/zenodo.2654934)
+
 ## Background
 
 Stack Exchange is a famous online Q&A community featuring high quality content. It started in 2008 as Stack Overflow, and has gained tremendous popularity in ten years. Recently, however, people begin to criticize the site (network) for being less and less friendly. In particular, new questions are no longer answered in a timely manner; instead, they are likely to cause "downvote" or "flag as duplicate / off-topic" with no constructive input from community on how to improve the quality.
